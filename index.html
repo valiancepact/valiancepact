@@ -218,7 +218,7 @@
         cell.appendChild(img);
 
         // Add events if any exist for this day
-        if (events[dateKey].events) {
+        if (events[dateKey] && events[dateKey].events) {
           const evContainer = document.createElement("div");
           evContainer.style.marginTop = "6px";
           evContainer.style.fontSize = "12px";
