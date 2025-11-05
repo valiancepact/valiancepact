@@ -196,10 +196,7 @@
 
         let imgFile = `${year}_${formattedMonth}_${formattedDay}.png`;
 
-        if (events[dateKey])
-          console.log(events[dateKey]);
-        
-        if (events[dateKey] && events[dateKey].image) {
+        if (events[dateKey]) {
           console.log(events[dateKey]);
           imgFile = events[dateKey].image;
         }
