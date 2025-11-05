@@ -193,14 +193,28 @@
         const formattedDay = String(day).padStart(2, "0");
 
         const dateKey = `${year}-${formattedMonth}-${formattedDay}`;
-        const imgPath = `${year}_${formattedMonth}_${formattedDay}.png`;
 
+        let imgFile = null;
+  
+        if (events[dateKey] && events[dateKey].image) {
+          imgFile = events[dateKey].image;
+        }
+        
+        if (!imgFile) {
+          imgFile = `${year}_${formattedMonth}_${formattedDay}.png`;
+        }
+        
         const img = document.createElement("img");
-        img.src = imgPath;
-        img.alt = `${dateKey}`;
+        img.src = imgFile;
+        img.alt = dateKey;
+        
         img.onerror = () => {
-          if (!img.dataset.fallback) { img.dataset.fallback = '1'; img.src = "default.png"; }
+          if (!img.dataset.fallback) { 
+            img.dataset.fallback = "1"; 
+            img.src = "default.png"; 
+          }
         };
+
 
         const header = document.createElement("strong");
         header.textContent = day;
