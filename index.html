@@ -147,15 +147,15 @@
     // Example:
     // "2025-11-04": [{ name: "Launch Day", timeUTC: "2025-11-04T15:00:00Z" }]
     
-    const events = fetch('events.json')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! Status: ${response.status}`);
-                    }
-                    return response.json();  
-                })
-                .then(data => console.log(data))  
-                .catch(error => console.error('Failed to fetch data:', error)); 
+    const events = {};
+    
+    fetch('events.json')
+      .then(response => response.json())
+      .then(data => {
+        events = data;
+        loadMonth(currentDate);
+      })
+      .catch(err => console.error(err));
 
     function formatEventTimeToLocal(utcString) {
       const date = new Date(utcString);
