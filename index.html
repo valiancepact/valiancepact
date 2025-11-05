@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Image Calendar</title>
+  <title>Valiance Pact Calendar</title>
   <style>
     :root{
       --bg:#1e1e1e;
@@ -194,14 +194,10 @@
 
         const dateKey = `${year}-${formattedMonth}-${formattedDay}`;
 
-        let imgFile = null;
+        let imgFile = `${year}_${formattedMonth}_${formattedDay}.png`;;
   
         if (events[dateKey] && events[dateKey].image) {
           imgFile = events[dateKey].image;
-        }
-        
-        if (!imgFile) {
-          imgFile = `${year}_${formattedMonth}_${formattedDay}.png`;
         }
         
         const img = document.createElement("img");
