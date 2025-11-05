@@ -194,11 +194,13 @@
 
         const dateKey = `${year}-${formattedMonth}-${formattedDay}`;
 
-        let imgFile = `${year}_${formattedMonth}_${formattedDay}.png`;;
+        let imgFile = `${year}_${formattedMonth}_${formattedDay}.png`;
   
         if (events[dateKey] && events[dateKey].image) {
           imgFile = events[dateKey].image;
         }
+
+        console.log(imgFile);
         
         const img = document.createElement("img");
         img.src = imgFile;
