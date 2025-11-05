@@ -199,7 +199,7 @@
         img.src = imgPath;
         img.alt = `${dateKey}`;
         img.onerror = () => {
-          if (!img.dataset.fallback) { img.dataset.fallback = '1'; img.src = "default.webp"; }
+          if (!img.dataset.fallback) { img.dataset.fallback = '1'; img.src = "default.png"; }
         };
 
         const header = document.createElement("strong");
